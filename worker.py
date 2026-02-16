@@ -1,6 +1,8 @@
 import grpc
 import requests
 import json
+import warnings
+warnings.filterwarnings("ignore", category=UserWarning, module="openpyxl")
 from gateway_pb2 import ActivateJobsResponse, ActivateJobsRequest, ActivatedJob, CompleteJobRequest, CompleteJobResponse
 from gateway_pb2_grpc import GatewayStub
 from dotenv import load_dotenv
