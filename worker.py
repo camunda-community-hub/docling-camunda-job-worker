@@ -108,16 +108,8 @@ if __name__ == "__main__":
                 result = doc_converter.convert(f'{docs_path}{doc_name}')
                 markdown = result.document.export_to_markdown()
                 html = result.document.export_to_html()
-                #jsonExport = result.document.export_to_json()
                 variables[outputName + "_md"] = markdown
                 variables[outputName + "_html"] = html
-                #print("dumping markdown into txt")
-                #with open("markdown.txt", "w") as f:
-                #    f.write(markdown)
-                #with open("html-version.html", "w") as f:
-                #    f.write(html)
-                #with open("json-version.json", "w") as f:
-                #    f.write(jsonExport)
                 complete_job(job, variables)
             except Exception as e:
                 if e.__class__ != IndexError:
