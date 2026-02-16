@@ -106,6 +106,7 @@ if __name__ == "__main__":
             try:
                 job: ActivatedJob = activate_job("converter.docling")
                 variables = json.loads(job.variables)
+                print(f"variables: {json.dumps(variables, indent=2)}")
                 outputName = variables["outputVarName"]
                 document = variables["document"][0]
                 # download doc from Camunda
