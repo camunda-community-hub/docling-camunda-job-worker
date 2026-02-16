@@ -35,6 +35,9 @@ def get_access_token(url, client_id, client_secret):
               "client_secret":client_secret},
         auth=(client_id, client_secret),
     )
+    if response.status_code != 200:
+        print(f"Token request failed with status {response.status_code}: {response.text}")
+        raise Exception(f"Failed to get access token: {response.status_code} {response.text}")
     return response.json()["access_token"]
 
 def open_channel():
