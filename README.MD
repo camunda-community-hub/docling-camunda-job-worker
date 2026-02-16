@@ -1,5 +1,5 @@
-## WIP python based Camunda job worker that uses docling to convert pdf files to markdown
-This is a work in progress, it aims to help make sense of large pdf files and allow their content to be used in agentic processes
+## WIP Python-based Camunda Job Worker that uses Docling to convert PDF files to Markdown and HTML
+This is a work in progress, it aims to help make sense of large PDF files and allow their content to be used in agentic processes
 
 ### Preparation and Installation
 In order to run this project on your machine you will need to follow the installation instructions from [docling](https://github.com/docling-project/docling) 
@@ -22,8 +22,14 @@ Downloading easyocr models...
 Models downloaded into $HOME/.cache/docling/models.
 ```
 
-#### update .env file
-locate the .env file and update your api credentials accordingly
+#### Configure environment variables
+Copy the included template and fill in your Camunda API credentials:
+```
+cp .env.template .env
+```
+Then edit the `.env` file and set your `client_id`, `client_secret`, `cluster_id` and `region`.
+
+The template includes presets for both **SaaS** and **Self-Managed** mode — uncomment the section that matches your setup.
 
 #### Import Connector Template
 find the included ./CamundaConnectorTempate/Docling Converter.json and upload and publish it to a Camunda Modeler Webproject
@@ -31,6 +37,14 @@ find the included ./CamundaConnectorTempate/Docling Converter.json and upload an
 ### Usage
 Start up the worker by simply running it via python:
 `python worker.py`
+
+The worker will print:
+```
+starting docling worker...
+opened channel
+activating jobs of type converter.docling...
+```
+and then wait for incoming jobs — this is normal. It runs as a long-lived process and will process jobs as they arrive from Camunda.
 
 Now you can create a Process, attach a start form with a file picker and point it to a variable name 'document' and add a task with the Docling Converter connector. Deploy the process and start it via Camunda Tasklist, upload a pdf file and see how Docling converts it for you. 
 
