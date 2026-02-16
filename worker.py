@@ -79,6 +79,7 @@ def complete_job(activatedJob, variables):
     return complete_job_response
 
 def download_doc(document):
+    os.makedirs(docs_path, exist_ok=True)
     documentId = document["documentId"]
     contentHash = document["contentHash"]
     fileMetaData = document["metadata"]
