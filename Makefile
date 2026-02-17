@@ -29,3 +29,4 @@ update-dependencies: venv
 clean:
 	rm -rf venv
 	rm -rf docs/*
+	rm -rf __pycache__
