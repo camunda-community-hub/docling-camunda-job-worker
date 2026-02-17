@@ -34,6 +34,13 @@ The template includes presets for both **SaaS** and **Self-Managed** mode — un
 #### Import Connector Template
 find the included ./CamundaConnectorTempate/Docling Converter.json and upload and publish it to a Camunda Modeler Webproject
 
+### Quick Start with Make
+Instead of running the steps above manually, you can simply run:
+```
+make
+```
+This will create a Python virtual environment, install dependencies, download Docling models, and start the worker. On first run it will also create a `.env` file from the template and remind you to fill in your credentials.
+
 ### Usage
 Start up the worker by simply running it via python:
 `python worker.py`
