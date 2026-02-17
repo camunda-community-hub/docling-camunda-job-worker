@@ -6,7 +6,11 @@ all: setup
 	source venv/bin/activate && python worker.py
 
 .PHONY: setup
-setup: venv $(MODELS_DIR)
+setup: .env venv $(MODELS_DIR)
+
+.env:
+	cp .env.template .env
+	@echo "Created .env from template. Please edit it with your credentials before running again."
 
 venv:
 	python3 -m venv venv
