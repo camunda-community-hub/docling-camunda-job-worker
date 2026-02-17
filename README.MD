@@ -1,4 +1,4 @@
-## WIP Python-based Camunda Job Worker that uses Docling to convert PDF files to Markdown and HTML
+## Python-based Job Worker for Camunda 8 that uses Docling to convert PDF or Excel files to Markdown and HTML
 This is a work in progress, it aims to help make sense of large PDF files and allow their content to be used in agentic processes
 
 ### Preparation and Installation
